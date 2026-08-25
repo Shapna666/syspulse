@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0b0f;
+  --color-surface: #14161d;
+  --color-surface-hover: #1b1e27;
+  --color-border: #23262f;
+  --color-text-primary: #edeef2;
+  --color-text-muted: #8b90a0;
+  --color-accent: #2dd4bf;
+  --color-cpu: #38bdf8;
+  --color-memory: #f472b6;
+  --color-disk: #fbbf24;
+  --color-network: #a78bfa;
+  --color-battery: #34d399;
+  --color-critical: #f87171;
+  --color-warning: #fbbf24;
+  --color-healthy: #34d399;
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+.pulse-live {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}

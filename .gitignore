@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+syspulse-backend/node_modules/
+syspulse-frontend/node_modules/
+
+# Environment variables
+.env
+syspulse-backend/.env
+syspulse-frontend/.env
+
+# Build output
+syspulse-frontend/dist/
+syspulse-backend/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/*
+!.vscode/extensions.json

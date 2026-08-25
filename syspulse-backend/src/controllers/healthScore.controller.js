@@ -16,7 +16,11 @@ async function getHealthScoreHandler(req, res, next) {
     const result = calculateHealthScore(cpu, memory, disk, battery);
     res.json(result);
   } catch (err) {
-    next(err);
+    res.status(200).json({
+      score: 0,
+      status: 'Unavailable',
+      recommendations: ['System metrics are unavailable in this environment.'],
+    });
   }
 }
 

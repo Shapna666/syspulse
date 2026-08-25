@@ -11,9 +11,11 @@ const io = new Server(httpServer, {
   cors: {
     origin: [
       'http://localhost:5173',
-      'https://syspulse-f8sb-2c2rhl5fc-msshapnamuthukumar666-6035s-projects.vercel.app',
+      'https://syspulse-f8sb.vercel.app',
       /\.vercel\.app$/,
     ],
+    credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS'],
   },
 });
 

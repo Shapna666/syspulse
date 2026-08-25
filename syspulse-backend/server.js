@@ -8,7 +8,13 @@ const { startBroadcaster } = require('./src/services/broadcaster.service');
 const PORT = process.env.PORT || 5000;
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
-  cors: { origin: ['http://localhost:5173', 'https://REPLACE-WITH-VERCEL-URL.vercel.app'] },
+  cors: {
+    origin: [
+      'http://localhost:5173',
+      'https://syspulse-f8sb-2c2rhl5fc-msshapnamuthukumar666-6035s-projects.vercel.app',
+      /\.vercel\.app$/,
+    ],
+  },
 });
 
 httpServer.listen(PORT, () => {

@@ -6,7 +6,11 @@ const errorHandler = require('./middleware/errorHandler');
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://REPLACE-WITH-VERCEL-URL.vercel.app'],
+  origin: [
+    'http://localhost:5173',
+    'https://syspulse-f8sb-2c2rhl5fc-msshapnamuthukumar666-6035s-projects.vercel.app',
+    /\.vercel\.app$/,
+  ],
 }));
 app.use(express.json());
 

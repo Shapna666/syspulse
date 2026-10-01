@@ -30,7 +30,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
 app.use(express.json());
 
 // API routes
@@ -40,9 +39,11 @@ app.use('/api', routes);
 const frontendDistPath = path.join(__dirname, '../../syspulse-frontend/dist');
 app.use(express.static(frontendDistPath));
 
-// For SPA routing: return index.html for non-API GET requests
-app.get('*', (req, res, next) => {
-  if (req.path.startsWith('/api')) return next();
+// For SPA routing: return index.html for any non-API GET request
+app.use((req, res, next) => {
+  if (req.method !== 'GET' || req.path.startsWith('/api')) {
+    return next();
+  }
   const indexPath = path.join(frontendDistPath, 'index.html');
   res.sendFile(indexPath, (err) => {
     if (err) {

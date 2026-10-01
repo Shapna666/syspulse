@@ -40,7 +40,11 @@ async function checkAlerts() {
         };
 
         activeAlerts = [...activeAlerts.filter((item) => item.metric !== metric), alert];
-        notifier.notify({ title: 'SysPulse Alert', message });
+        try {
+          notifier.notify({ title: 'SysPulse Alert', message }, () => {});
+        } catch {
+          // Ignore desktop notification errors on headless servers
+        }
       } else if (!isBreached && breachState[metric]) {
         activeAlerts = activeAlerts.filter((alert) => alert.metric !== metric);
       } else if (isBreached && existingAlert && existingAlert.threshold !== thresholds[metric]) {

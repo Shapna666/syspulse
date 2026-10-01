@@ -1,0 +1,11 @@
+{
+  "name": "syspulse",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix syspulse-backend install && npm --prefix syspulse-frontend install && npm --prefix syspulse-frontend run build",
+    "start": "node syspulse-backend/server.js",
+    "dev:backend": "npm --prefix syspulse-backend start",
+    "dev:frontend": "npm --prefix syspulse-frontend run dev"
+  }
+}
